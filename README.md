@@ -1,1 +1,1 @@
-# L42
+Exercises on [Theorem Proving in Lean 4](https://lean-lang.org/theorem_proving_in_lean4/title_page.html)
