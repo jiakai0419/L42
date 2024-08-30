@@ -2,10 +2,6 @@
 
 -- variable (p q r : Prop)
 
--- distributivity
--- example : p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r) := sorry
--- example : p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r) := sorry
-
 -- other properties
 -- example : (p → (q → r)) ↔ (p ∧ q → r) := sorry
 -- example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) := sorry

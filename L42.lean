@@ -2,3 +2,4 @@
 -- Import modules here that should be built as part of the library.
 import L42.PropositionsAndProofs.E1
 import L42.PropositionsAndProofs.E2
+import L42.PropositionsAndProofs.E3
