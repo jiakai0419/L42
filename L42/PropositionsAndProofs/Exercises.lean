@@ -3,8 +3,6 @@
 -- variable (p q r : Prop)
 
 -- other properties
--- example : (p → (q → r)) ↔ (p ∧ q → r) := sorry
--- example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) := sorry
 -- example : ¬(p ∨ q) ↔ ¬p ∧ ¬q := sorry
 -- example : ¬p ∨ ¬q → ¬(p ∧ q) := sorry
 -- example : ¬(p ∧ ¬p) := sorry
