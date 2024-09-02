@@ -18,3 +18,14 @@ example : ((p ∨ q) → r) ↔ (p → r) ∧ (q → r) :=
         hpq.elim
           (λ (hp : p) => h.left hp)
           (λ (hq : q) => h.right hq))
+
+example : ¬(p ∨ q) ↔ ¬p ∧ ¬q :=
+  Iff.intro
+    (λ (h : ¬(p ∨ q)) =>
+      ⟨λ (hp : p) => h (Or.inl hp),
+      λ (hq : q) => h (Or.inr hq)⟩)
+    (λ (h : ¬p ∧ ¬q) =>
+      λ (hpq : p ∨ q) =>
+        hpq.elim
+          (λ (hp : p) => h.left hp)
+          (λ (hq : q) => h.right hq))
