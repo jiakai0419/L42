@@ -48,3 +48,10 @@ example : p ∧ ¬q → ¬(p → q) :=
 example : ¬p → (p → q) :=
   λ (hnp : ¬p) =>
     λ (hp : p) => absurd hp hnp
+
+example : (¬p ∨ q) → (p → q) :=
+  λ (h : ¬p ∨ q) =>
+    λ (hp : p) =>
+      h.elim
+        (λ hnp : ¬p => absurd hp hnp)
+        (λ hq : q => hq)
