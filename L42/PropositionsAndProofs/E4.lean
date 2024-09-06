@@ -55,3 +55,16 @@ example : (¬p ∨ q) → (p → q) :=
       h.elim
         (λ hnp : ¬p => absurd hp hnp)
         (λ hq : q => hq)
+
+example : p ∨ False ↔ p :=
+  Iff.intro
+    (λ (h : p ∨ False) =>
+      h.elim
+        (λ (hp : p) => hp)
+        (λ (f : False) => False.elim f))
+    (λ (hp : p) => Or.inl hp)
+
+example : p ∧ False ↔ False :=
+  Iff.intro
+    (λ (h : p ∧ False) => h.right)
+    (λ (f : False) => ⟨False.elim f, f⟩)

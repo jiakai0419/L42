@@ -3,8 +3,6 @@
 -- variable (p q r : Prop)
 
 -- other properties
--- example : p ∨ False ↔ p := sorry
--- example : p ∧ False ↔ False := sorry
 -- example : (p → q) → (¬q → ¬p) := sorry
 
 -- Prove the following identities, replacing the "sorry" placeholders with actual proofs. These require classical reasoning.
