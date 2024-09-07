@@ -20,3 +20,12 @@ example : ¬(p ∧ q) → ¬p ∨ ¬q :=
           (λ (hq : q) => False.elim (h ⟨hp,hq⟩))
           (λ (hnq : ¬q) => Or.inr hnq))
       (λ (hnp : ¬p) => Or.inl hnp)
+
+example : ¬(p → q) → p ∧ ¬q :=
+  λ (h : ¬(p → q)) =>
+    Or.elim (em p)
+      (λ (hp : p) =>
+        Or.elim (em q)
+          (λ (hq : q) => False.elim (h (λ (_ : p) => hq)))
+          (λ (hnq : ¬q) => ⟨hp, hnq⟩))
+      (λ (hnp : ¬p) => False.elim (h (λ (hp : p) => absurd hp hnp)))
