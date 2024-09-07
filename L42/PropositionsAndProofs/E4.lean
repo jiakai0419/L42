@@ -68,3 +68,9 @@ example : p ∧ False ↔ False :=
   Iff.intro
     (λ (h : p ∧ False) => h.right)
     (λ (f : False) => ⟨False.elim f, f⟩)
+
+example : (p → q) → (¬q → ¬p) :=
+  λ (h : p → q) =>
+    λ (hnq : ¬q) =>
+      λ (hp : p) =>
+        absurd (h hp) hnq
