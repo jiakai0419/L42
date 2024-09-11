@@ -1,3 +1,5 @@
+/- Prove the following identities, replacing the "sorry" placeholders with actual proofs. These require classical reasoning. -/
+
 open Classical
 
 variable (p q r : Prop)
