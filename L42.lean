@@ -3,3 +3,4 @@
 import L42.PropositionsAndProofs.Exercise_1
 import L42.PropositionsAndProofs.Exercise_2
 import L42.QuantifiersAndEquality.TheUniversalQuantifier
+import L42.QuantifiersAndEquality.Equality
