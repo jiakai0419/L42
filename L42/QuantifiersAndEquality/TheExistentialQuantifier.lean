@@ -65,3 +65,31 @@ example (α : Type) (p q : α → Prop) (h : ∃ x, p x ∧ q x) : ∃ x, q x �
 -- variable (p q : α → Prop)
 -- example : (h : ∃ x, p x ∧ q x) → ∃ x, q x ∧ p x :=
 --   fun ⟨w, hpw, hqw⟩ => ⟨w, hqw, hpw⟩
+
+
+def is_even (a : Nat) := ∃ b, a = 2 * b
+
+theorem even_plus_even (h1 : is_even a) (h2 : is_even b) : is_even (a + b) :=
+  Exists.elim h1 (λ w1 (hw1 : a = 2 * w1) =>
+  Exists.elim h2 (λ w2 (hw2 : b = 2 * w2) =>
+    Exists.intro (w1 + w2)
+      (calc a + b
+        _ = 2 * w1 + 2 * w2 := by rw [hw1, hw2]
+        _ = 2 * (w1 + w2) := by rw [Nat.mul_add])))
+
+theorem even_plus_even_c (h1 : is_even a) (h2 : is_even b) : is_even (a + b) :=
+  match h1, h2 with
+  | ⟨w1, hw1⟩, ⟨w2, hw2⟩ => ⟨w1 + w2, by rw [hw1, hw2, Nat.mul_add]⟩
+
+open Classical
+variable (p : α → Prop)
+
+example (h : ¬ ∀ x, ¬ p x) : ∃ x, p x :=
+  byContradiction
+    (λ h1 : ¬ ∃ x, p x =>
+      have h2 : ∀ x , ¬ p x :=
+        λ x =>
+        λ h3 : p x =>
+        have h4 : ∃ x, p x := ⟨x, h3⟩
+        show False from h1 h4
+      show False from h h2)
