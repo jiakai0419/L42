@@ -81,6 +81,7 @@ theorem even_plus_even_c (h1 : is_even a) (h2 : is_even b) : is_even (a + b) :=
   match h1, h2 with
   | ⟨w1, hw1⟩, ⟨w2, hw2⟩ => ⟨w1 + w2, by rw [hw1, hw2, Nat.mul_add]⟩
 
+
 open Classical
 variable (p : α → Prop)
 
