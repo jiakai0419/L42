@@ -19,7 +19,7 @@ example : (∀ x, p x ∨ r) ↔ (∀ x, p x) ∨ r :=
           Or.inl (λ x : α =>
             (h x).elim
               (λ hpx : p x => hpx)
-              (λ hr : r => absurd hr nhr ))))
+              (λ hr : r => absurd hr nhr))))
     (λ h : (∀ x, p x) ∨ r =>
       λ x : α =>
         h.elim
