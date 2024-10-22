@@ -25,3 +25,14 @@ example : (∀ x, p x ∨ r) ↔ (∀ x, p x) ∨ r :=
         h.elim
           (λ hpx : (∀ x, p x) => Or.inl (hpx x))
           (λ hr : r => Or.inr hr))
+
+example : (∀ x, r → p x) ↔ (r → ∀ x, p x) :=
+  Iff.intro
+    (λ h : (∀ x, r → p x) =>
+    λ hr : r =>
+    λ x : α =>
+      (h x) hr)
+    (λ h : (r → ∀ x, p x) =>
+    λ x : α =>
+    λ hr : r =>
+      (h hr) x)
